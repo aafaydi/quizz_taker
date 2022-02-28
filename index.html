@@ -3,36 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
 </head>
 <body>
- <header>
-<h1>Quizz</h1>
-<div class="timer" id="time">Time:0</div>
- </header> 
+
+   
+ <div class="header">
+    <div class="timer" id="time">Time:0</div>
+    <h1 class="h1">View high score</h1>
+</div>
+
+
+<section class="main_contant">
+<div class ="main">
+ <h1>Coding Quizz Challange</h1>
+  
+<p>Anser each question within the time is stated 
+<br>to get full 25 points to each question</br</p>
+
+</div>
+</section>
+
+
 
  <section class="container-start">
  <button class="start-ptn">start</button>
  </section>
 
+<div class="box1">
  <section class="container-question">
- <h1 class="question">Question</h1>
- <div class="answer">
-     <button class="answer-btn">Answer1</button>
-     <button class="answer-btn">Answer1</button>
-     <button class="answer-btn">Answer1</button>
-     <button class="answer-btn">Answer1</button>
+  <div class="answer">
+     
  </div>
+</section>
+</div>
+
 <button class="next-btn">Next</button>
- </section>
-<section class="container-highschool">
-    <h1 class="done">You are done</h1>
-    <form>
+
+<div class="box2">
+<section class="container-highscore">
+    <h2 class="done">Well done!</h2>
+    <h3 class="score"></h3>
+</section>
+</div>
+    <form class="form">
+        <font size="+2">Enter your initial:</font>
         <input type="text" class="name" placeholder="Enter your Name">
         <button class="submit">Submit</button>
     </form>
-</section>
+
 <script src= "quizz.js"></script>
 </body>
 </html>
