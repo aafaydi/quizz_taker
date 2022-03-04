@@ -39,7 +39,8 @@ const main_contant = document.querySelector(".main_contant")
  question_container.style.display= "none"
  next.style.display = "none"
  var submitbtn= document.querySelector(".submit")
- var userdisplay = document.querySelector
+ var userdisplay = document.querySelector(".display-score")
+ var intitname = document.querySelector(".name")
 
 
 var seconds = 75;
@@ -89,7 +90,7 @@ function show_question(q){
 question_container.appendChild(questiontext)
 firsto.forEach(option=>{
     var optionitem = document.createElement("button")
-
+    // optionitem.style.display = column;
     optionitem.setAttribute('style', 'background-color: blue')
     optionitem.style.color = 'white'
     optionitem.textContent= option
@@ -107,6 +108,7 @@ function check(ans){
 
     var status = document.createElement("h1")
     if(ans===questions[qi].correctanswer){
+        status.innerHTML = "-------------------------------------------------"
         status.innerHTML = "correct"
         score = score +25;
         var scoredisplay = document.querySelector(".score")
@@ -115,6 +117,7 @@ function check(ans){
     }
     else{
         optionitem.setAttribute('style', 'background-color: red')
+        status.innerHTML = "-------------------------------------------------"
         status.innerHTML= "Wrong"
     }
 question_container.appendChild(status)
@@ -139,7 +142,7 @@ next.addEventListener("click", function(){
 }
 
 var scoredisplay = document.querySelector(".score")
-scoredisplay.innerHTML = "Your Final Score is" + score;
+scoredisplay.innerHTML = "Your Final Score is" + " " +score;
 
 const end_page= document.querySelector(".box2")
 end_page.style.display="none"
@@ -152,13 +155,19 @@ end_page.style.display = "inline-block"
 }
 
 function save(){
-submitbtn.addEventListener("click", function(){
+
 var savescore = JSON.parse(localStorage.getItem("savescore"))
-var user = input.value()
+var user = intitname.value.trim;
+console.log(user);
 localStorage.setItem("savescore", JSON.stringify(savescore))
 localStorage.setItem("user", JSON.stringify(user))
 
-})
-userdisplay.innerHTML = "Your Final Score is" +" " + savescore;
-        console.log(score)
+
+userdisplay.innerHTML = user +" " + savescore ;
+        // console.log(user,score)
 }
+submitbtn.addEventListener("click", save)
+
+
+
+
