@@ -8,7 +8,7 @@ var questions = [
     {
         question:"Who won the soccer 1982 world cup?",
         options:[ "Germany", "Brazil", "Italy", "Iraq"],
-        correctanswer:"Iraq"
+        correctanswer:"Italy"
     },
 
     {
@@ -25,9 +25,9 @@ var questions = [
 
 
     
-]
+];
 
-var timer = document.getElementById("time")
+var timer = document.querySelector(".timer")
 
 const start = document.querySelector(".start-ptn")
 var question_container = document.querySelector(".container-question")
@@ -41,6 +41,8 @@ const main_contant = document.querySelector(".main_contant")
  var submitbtn= document.querySelector(".submit")
  var userdisplay = document.querySelector(".display-score")
  var intitname = document.querySelector(".name")
+ var score = score +25;
+ 
 
 
 var seconds = 75;
@@ -75,12 +77,12 @@ if(seconds<=0){
 
 var questiontext = document.createElement("h1")
 function show_question(q){
- for(var i=0; i<questions.length; i++){
+//  for(var i=0; i<questions.length; i++){
     var firstq= questions[q].question
     console.log(firstq)
     var firsto= questions[q].options
     questiontext.innerHTML = firstq
- }
+//  }
 
    
 // var firstq= questions[q].question
@@ -108,7 +110,7 @@ function check(ans){
 
     var status = document.createElement("h1")
     if(ans===questions[qi].correctanswer){
-        status.innerHTML = "-------------------------------------------------"
+        
         status.innerHTML = "correct"
         score = score +25;
         var scoredisplay = document.querySelector(".score")
@@ -117,7 +119,7 @@ function check(ans){
     }
     else{
         optionitem.setAttribute('style', 'background-color: red')
-        status.innerHTML = "-------------------------------------------------"
+        
         status.innerHTML= "Wrong"
     }
 question_container.appendChild(status)
@@ -155,16 +157,19 @@ end_page.style.display = "inline-block"
 }
 
 function save(){
+    scoredisplay.style.display ="none"
 
 var savescore = JSON.parse(localStorage.getItem("savescore"))
 var user = intitname.value.trim;
 console.log(user);
 localStorage.setItem("savescore", JSON.stringify(savescore))
 localStorage.setItem("user", JSON.stringify(user))
-
+   
 
 userdisplay.innerHTML = user +" " + savescore ;
-        // console.log(user,score)
+
+userdisplay.appendChild(user)
+        
 }
 submitbtn.addEventListener("click", save)
 
